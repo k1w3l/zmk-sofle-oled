@@ -38,90 +38,6 @@
     };
 
     behaviors {
-        a_ac: a_ac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp APOS &kp A>;
-        };
-        a_tld: a_tld {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp TILDE &kp A>;
-        };
-        a_circ: a_circ {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp CARET &kp A>;
-        };
-        a_grv: a_grv {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp GRAVE &kp A>;
-        };
-        e_ac: e_ac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp APOS &kp E>;
-        };
-        e_circ: e_circ {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp CARET &kp E>;
-        };
-        i_ac: i_ac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp APOS &kp I>;
-        };
-        o_ac: o_ac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp APOS &kp O>;
-        };
-        o_circ: o_circ {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp CARET &kp O>;
-        };
-        o_tld: o_tld {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp TILDE &kp O>;
-        };
-        u_ac: u_ac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp APOS &kp U>;
-        };
-        cedilha: cedilha {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp RA(C)>;
-        };
     };
 
     combos {
@@ -176,12 +92,17 @@
         };
 
         layer_3 {
+            // MO3 + dead key → solte MO3 → letra = caractere acentuado (us-intl)
+            // Posições inspiradas no ABNT2 (pinky direito):
+            //   P = ´ (dead acute)  \  = ^ (dead circumflex)
+            //   ;  = ç              '  = ~ (dead tilde)
+            //   /  = ` (dead grave)
             bindings = <
-&trans  &trans   &trans    &trans   &trans  &trans    &trans  &trans    &trans   &trans   &trans   &trans    &trans
-&trans  &trans   &e_circ   &e_ac    &trans  &trans    &trans  &o_circ   &u_ac    &i_ac    &o_ac    &o_tld    &trans
-&trans  &a_ac    &a_tld    &trans   &trans  &trans    &trans  &trans    &trans   &trans   &trans   &trans    &trans
-&trans  &a_grv   &a_circ   &cedilha &trans  &trans    &trans  &trans    &trans   &trans   &trans   &trans    &trans
-&trans  &trans   &trans    &trans   &trans  &trans    &trans  &trans    &trans   &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans       &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &kp APOS     &kp CARET
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &kp RA(C)    &kp TILDE
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &kp GRAVE    &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
             display-name = "PTBR";
